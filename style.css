@@ -1,0 +1,487 @@
+.hero-copy-block {
+  container-type: inline-size;
+  min-width: 0;
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.topbar {
+  flex: 0 0 auto;
+}
+
+main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0 5vw;
+  overflow: hidden;
+}
+
+.hero {
+  display: flex;
+  flex: 0 0 clamp(130px, 20svh, 190px);
+  align-items: center;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  max-height: none;
+  margin: 0;
+  padding: 12px 0;
+}
+
+.hero-copy-block {
+  width: 100%;
+  height: 100%;
+  flex: 1 1 auto;
+}
+
+.workspace {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 28px;
+  width: 100%;
+  min-height: 0;
+  padding: 0 0 12px;
+}
+
+.composer {
+  position: static;
+  align-self: stretch;
+  height: 100%;
+  flex: 0 0 min(35%, 440px);
+  min-width: 0;
+}
+
+.dictionary {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+}
+
+.footer {
+  flex: 0 0 auto;
+  width: 100%;
+  min-height: 48px;
+}
+
+.hero-copy-block h1 {
+  display: block;
+  width: 100%;
+  margin: 0;
+  font-size: clamp(24px, 8.5cqi, 68px);
+  line-height: 1.08;
+  letter-spacing: 0;
+  overflow-wrap: normal;
+  word-break: normal;
+  hyphens: none;
+}
+
+.hero-copy-block h1 > span {
+  display: block;
+}
+
+.backup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.backup-btn {
+  min-height: 35px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 700;
+  transition: border-color .2s, background .2s, transform .2s;
+}
+
+.backup-btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent2);
+  background: var(--soft);
+}
+
+@media (max-width: 1000px) {
+  main {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .hero {
+    flex-basis: clamp(112px, 17svh, 160px);
+  }
+
+  .workspace {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .composer {
+    height: auto;
+    flex: 0 0 auto;
+  }
+
+  .dictionary {
+    flex: 1 1 0;
+    height: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .hero {
+    flex-basis: clamp(90px, 14svh, 120px);
+  }
+
+  .workspace {
+    padding-bottom: 8px;
+  }
+
+  .composer {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1001px) {
+  body {
+    height: 100vh;
+    height: 100svh;
+    overflow: hidden;
+  }
+
+  main {
+    --hero-upper-height: clamp(150px, 26vh, 240px);
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+    column-gap: clamp(20px, 2.5vw, 40px);
+    row-gap: 12px;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 1600px;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 clamp(24px, 4vw, 64px);
+    overflow: hidden;
+  }
+
+  .hero {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: clamp(14px, 2vh, 24px);
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    flex: initial;
+    padding: 24px 0;
+    overflow: hidden;
+  }
+
+  .hero-copy-block {
+    flex: 0 0 var(--hero-upper-height);
+    width: 100%;
+    height: var(--hero-upper-height);
+    max-height: none;
+  }
+
+  .composer {
+    position: static;
+    align-self: stretch;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    flex: 1 1 auto;
+  }
+
+  .workspace {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: stretch;
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    height: 100%;
+    padding: 24px 0;
+    overflow: hidden;
+  }
+
+  .dictionary {
+    width: 100%;
+    height: auto;
+    min-width: 0;
+    min-height: 0;
+    flex: 1 1 auto;
+    gap: clamp(14px, 2vh, 24px);
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent) 68%, var(--line)) transparent;
+    scrollbar-gutter: stable;
+  }
+
+  .dictionary-top {
+    display: grid;
+    flex: 0 0 var(--hero-upper-height);
+    grid-template-rows: minmax(0, 1.1fr) minmax(0, .8fr) minmax(0, 1.1fr);
+    height: var(--hero-upper-height);
+    min-height: 0;
+    container-type: size;
+  }
+
+  .dictionary-top > * {
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .dictionary-top .section-head {
+    align-items: center;
+    margin: 0;
+    padding: 0 0 8px;
+  }
+
+  .dictionary-top .section-head h2 {
+    font-size: clamp(20px, 2cqh, 24px);
+  }
+
+  .dictionary-top .section-kicker,
+  .dictionary-top .sort-note {
+    font-size: clamp(11px, 1.5cqh, 13px);
+  }
+
+  .dictionary-top .backup-actions {
+    align-items: center;
+    gap: clamp(6px, 1cqh, 8px);
+    margin: 0;
+  }
+
+  .dictionary-top .backup-btn {
+    min-height: clamp(30px, 12cqh, 34px);
+    padding: 0 clamp(9px, 1.5cqi, 12px);
+    font-size: clamp(11px, 1.6cqh, 12px);
+  }
+
+  .dictionary-top .alphabet {
+    align-content: center;
+    gap: clamp(3px, 1cqh, 6px);
+    margin: 0;
+  }
+
+  .dictionary-top .letter-link {
+    width: clamp(24px, 10cqh, 30px);
+    height: clamp(24px, 10cqh, 30px);
+    font-size: clamp(12px, 5cqh, 15px);
+  }
+
+  .dictionary-results {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  #empty-state,
+  #empty-search {
+    min-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .dictionary::-webkit-scrollbar {
+    width: 9px;
+  }
+
+  .dictionary::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .dictionary::-webkit-scrollbar-thumb {
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--accent) 62%, var(--line));
+    background-clip: padding-box;
+    transition: background-color .2s ease;
+  }
+
+  .dictionary::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--accent) 82%, var(--ink));
+    background-clip: padding-box;
+  }
+
+  .footer {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    width: 100%;
+    min-height: 48px;
+    margin: 0;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 1000px) {
+  body {
+    display: block;
+    width: auto;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
+    padding: 0 20px;
+    overflow: visible;
+  }
+
+  .hero {
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 18px;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: none;
+    padding: 20px 0 0;
+    overflow: visible;
+  }
+
+  .hero-copy-block {
+    width: 100%;
+    height: clamp(110px, 28vw, 180px);
+    max-height: none;
+    flex: 0 0 auto;
+  }
+
+  .composer {
+    position: static;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    flex: 0 0 auto;
+  }
+
+  .workspace {
+    display: block;
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    padding: 0 0 20px;
+    overflow: visible;
+  }
+
+  .dictionary {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    min-height: 0;
+    overflow: visible;
+    scrollbar-width: auto;
+    scrollbar-gutter: auto;
+  }
+
+  .dictionary-top {
+    display: block;
+    height: auto;
+    min-height: 0;
+    container-type: normal;
+  }
+
+  .dictionary-top .section-head {
+    align-items: flex-end;
+    margin-bottom: 14px;
+    padding-bottom: 15px;
+  }
+
+  .dictionary-top .section-head h2 {
+    font-size: clamp(20px, 2.4vw, 24px);
+  }
+
+  .dictionary-top .section-kicker,
+  .dictionary-top .sort-note {
+    font-size: clamp(10px, 1.2vw, 11px);
+  }
+
+  .dictionary-top .backup-actions {
+    gap: 8px;
+    margin: 0 0 16px;
+  }
+
+  .dictionary-top .backup-btn {
+    min-height: clamp(32px, 8vw, 35px);
+    padding: 0 clamp(10px, 3vw, 12px);
+    font-size: clamp(10px, 2.8vw, 11px);
+  }
+
+  .dictionary-top .alphabet {
+    align-content: normal;
+    gap: 5px;
+    margin: 0 0 28px;
+  }
+
+  .dictionary-top .letter-link {
+    width: 27px;
+    height: 27px;
+    font-size: 11px;
+  }
+
+  .dictionary-results {
+    display: block;
+    min-height: 0;
+  }
+
+  #empty-state,
+  #empty-search {
+    min-height: 0;
+  }
+
+  .footer {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  main {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .hero-copy-block {
+    height: clamp(100px, 32vw, 140px);
+  }
+}
